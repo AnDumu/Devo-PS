@@ -7,6 +7,28 @@ class Numero(Enum):
     DEFECTIVO = 3
 
 def Ejercicio1(zNum):
-	pass
-
-Ejercicio1(12)
+	#hasta la mitad
+    ToFor = zNum // 2 + 1
+	
+    Acum = 0
+	
+	#loop
+    for i in range(1, ToFor):
+		#es divisible?
+        if zNum % i == 0:
+			#voy sumando divisibles
+            Acum += i
+    
+	#es el mismo valor que el número
+    if Acum == zNum:
+        return Numero.PERFECTO
+    
+	#es mayor que el número
+    if Acum > zNum:
+        return Numero.ABUNDANTE
+    
+	#sinó la opción restante
+    return Numero.DEFECTIVO
+        
+#llamada
+print("Resultado: ", Ejercicio1(12))
